@@ -34,9 +34,10 @@ public class EconomyListener implements Listener {
             if(acc == null)
                 plugin.getAccountManager().createAccount(player.getName());
             acc = plugin.getAccountManager().getAccount(player.getUniqueId());
-            if(!acc.getNickname().equals(player.getName()))
+            if(!acc.getNickname().equals(player.getName())) {
                 acc.setNickname(player.getName());
-            UtilServer.consoleLog("Account name changes detected, updating: " + player.getName());
+                UtilServer.consoleLog("Account name changes detected, updating: " + player.getName());
+            }
             plugin.getDataStore().saveAccount(acc);
         });
     }
